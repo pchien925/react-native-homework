@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { ReactNode } from "react";
 import { globalStyles } from "../styles/globalStyles";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 import TextComponent from "./TextComponent";
 import { fontFamilies } from "../constants/fontFamilies";
 
@@ -64,7 +64,7 @@ const ButtonComponent = (props: IProps) => {
         {icon && iconFlex === "left" && icon}
         <TextComponent
           text={text}
-          color={textColor ?? appColors.white}
+          color={textColor ? textColor : appColors.white}
           styles={[
             textStyles,
             {

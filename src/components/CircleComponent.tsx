@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { ReactNode } from "react";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 
 interface IProps {
   size?: number;

@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import RowComponent from "./RowComponent";
 import TextComponent from "./TextComponent";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 interface IProps {

@@ -1,48 +1,20 @@
-import { useAsyncStorage } from "@react-native-async-storage/async-storage";
-import { useEffect, useState } from "react";
-import { View } from "react-native";
-import SplashScreen from "./SplashScreen";
-import HomeScreen from "./home/HomeScreen";
-import LoginScreen from "./auth/LoginScreen";
-import OnBoardingScreen from "./OnBoardingScreen";
+import React, { useState } from "react";
+import SplashScreen from "./Splash";
+import InputComponent from "../components/InputComponent";
+import { Image, SafeAreaView, View } from "react-native";
+import ButtonComponent from "../components/ButtonComponent";
+import OnBoarding from "./OnBoarding";
+import { appInfo } from "../constants/appInfo";
+import VerifyCode from "./auth/OtpVerification";
+import Register from "./auth/Register";
+import ForgotPassword from "./auth/ForgotPassword";
+import ResetPassword from "./auth/ResetPassword";
+import ResetSuccessfully from "./auth/ResetSuccessfully";
+import OtpVerification from "./auth/OtpVerification";
+import Profile from "./user/Profile";
 
-const App = () => {
-  const [isShowSplash, setIsShowSplash] = useState<boolean>(true);
-
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-
-  const { getItem, setItem } = useAsyncStorage("token");
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsShowSplash(false);
-    }, 2000);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
-
-  useEffect(() => {
-    checkLogin();
-  }, []);
-
-  const checkLogin = async () => {
-    const token = await getItem();
-    console.log("token: ", token);
-    token && setAccessToken(token);
-  };
-
-  return (
-    <>
-      {isShowSplash ? (
-        <SplashScreen />
-      ) : accessToken ? (
-        <HomeScreen />
-      ) : (
-        <OnBoardingScreen />
-      )}
-    </>
-  );
+const HomeScreen = () => {
+  return <Profile />;
 };
 
-export default App;
+export default HomeScreen;

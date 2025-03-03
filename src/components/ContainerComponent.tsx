@@ -9,7 +9,7 @@ import {
 import React from "react";
 import RowComponent from "./RowComponent";
 import { useRouter } from "expo-router";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import TextComponent from "./TextComponent";
 import { fontFamilies } from "../constants/fontFamilies";
@@ -29,7 +29,7 @@ const ContainerComponent = (props: IProps) => {
 
   const headerComponent = () => {
     return (
-      <View style={{ flex: 1, paddingTop: 30 }}>
+      <View style={{ flex: 1, paddingTop: 4 }}>
         {(title || back) && (
           <RowComponent
             styles={{
@@ -75,7 +75,7 @@ const ContainerComponent = (props: IProps) => {
 
   return isImageBackground ? (
     <ImageBackground
-      source={require("../assets/images/splash-img.png")}
+      source={require("../assets/images/onBoarding.png")}
       style={{ flex: 1 }}
       imageStyle={{ flex: 1 }}
     >
@@ -83,7 +83,7 @@ const ContainerComponent = (props: IProps) => {
     </ImageBackground>
   ) : (
     <SafeAreaView style={[globalStyles.container]}>
-      <View>{headerComponent()}</View>
+      {headerComponent()}
     </SafeAreaView>
   );
 };

@@ -1,7 +1,7 @@
 import { View, Text, StyleProp, TextStyle, Platform } from "react-native";
 import React from "react";
 import { globalStyles } from "../styles/globalStyles";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 import { fontFamilies } from "../constants/fontFamilies";
 
 interface IProps {

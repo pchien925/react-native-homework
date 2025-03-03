@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React, { ReactNode } from "react";
 import { globalStyles } from "../styles/globalStyles";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 
 interface IProps {
   children: ReactNode;

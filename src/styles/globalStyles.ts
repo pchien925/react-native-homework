@@ -1,14 +1,23 @@
 import { StyleSheet } from "react-native";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
+import { fontFamilies } from "../constants/fontFamilies";
 
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: appColors.white,
+    padding: 10,
+    backgroundColor: "#fff",
   },
   text: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: fontFamilies.regular,
     fontSize: 14,
+    color: appColors.text,
+  },
+  input: {
+    padding: 0,
+    margin: 0,
+    flex: 1,
+    paddingHorizontal: 14,
     color: appColors.text,
   },
   button: {
@@ -32,7 +41,7 @@ export const globalStyles = StyleSheet.create({
   },
   section: {
     paddingHorizontal: 16,
-    paddingBottom: 20,
+    paddingBottom: 12,
   },
   row: {
     flexDirection: "row",

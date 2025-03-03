@@ -5,11 +5,14 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  StyleProp,
+  ViewStyle,
 } from "react-native";
 import React, { ReactNode, useState } from "react";
-import { appColors } from "../constants/appColor";
+import { appColors } from "../constants/appColors";
 import { globalStyles } from "../styles/globalStyles";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import RowComponent from "./RowComponent";
 
 interface IProps {
   value: string;
@@ -20,31 +23,9 @@ interface IProps {
   isPassword?: boolean;
   allowClear?: boolean;
   keyboardType?: KeyboardType;
+  styles?: StyleProp<ViewStyle>;
   onEnd?: () => void;
 }
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: "row",
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: appColors.gray3,
-    width: "100%",
-    minHeight: 56,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 15,
-    backgroundColor: appColors.white,
-    marginBottom: 19,
-  },
-  input: {
-    padding: 0,
-    margin: 0,
-    flex: 1,
-    paddingHorizontal: 14,
-    color: appColors.text,
-  },
-});
 
 const InputComponent = (props: IProps) => {
   const {
@@ -56,6 +37,7 @@ const InputComponent = (props: IProps) => {
     isPassword,
     allowClear,
     keyboardType,
+    styles,
     onEnd,
   } = props;
 
@@ -63,11 +45,26 @@ const InputComponent = (props: IProps) => {
     isPassword ?? false
   );
   return (
-    <View style={styles.inputContainer}>
+    <RowComponent
+      styles={[
+        {
+          borderRadius: 12,
+          borderWidth: 1,
+          borderColor: appColors.gray3,
+          minHeight: 56,
+          justifyContent: "center",
+          paddingHorizontal: 12,
+          width: "100%",
+          backgroundColor: appColors.white,
+          marginBottom: 15,
+        },
+        styles,
+      ]}
+    >
       {affix}
 
       <TextInput
-        style={[styles.input, globalStyles.text]}
+        style={[globalStyles.input, globalStyles.text]}
         value={value}
         placeholder={placeholder ?? ""}
         onChangeText={(value) => onChange(value)}
@@ -96,7 +93,7 @@ const InputComponent = (props: IProps) => {
           )
         )}
       </TouchableOpacity>
-    </View>
+    </RowComponent>
   );
 };
 
